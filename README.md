@@ -2,13 +2,16 @@
 
 Projeto para estudos sobre como desenvolver uma API seguindo o curso da Alura de Spring Boot 3.
 
-Este é um projeto inicial para estudos com Spring Boot. Ele inclui uma simples API REST que retorna "Hello, World!".
+Trello com o objetivo inicial do projeto: https://trello.com/b/O0lGCsKb/api-voll-med
+Figma: https://www.figma.com/design/N4CgpJqsg7gjbKuDmra3EV/Voll.med
 
 ## Estrutura do Projeto
 
 O projeto está estruturado da seguinte forma:
 
 - **HelloController**: Responsável por responder às requisições GET para o endpoint `/hello` com a mensagem "Hello, World!".
+## DTO
+Utilização do padrão DTO
 
 ## Pré-requisitos
 

@@ -10,6 +10,6 @@ public class HelloController {
 
     @GetMapping // Mapeia requisições HTTP GET para o método olaMundo
     public String olaMundo() {
-        return "Hello, World!";
+        return "Hello, World Spring Boot!";
     }
 }
