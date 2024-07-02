@@ -21,7 +21,7 @@ public class Medico {
 
     private String nome, email, telefone, crm;
 
-    @Enumerated // Especifica que o campo "especialidade" será mapeado como uma enumeração
+    @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
 
     @Embedded // Indica que o campo "endereco" é um componente embutido e seus campos serão mapeados para a tabela "medico"
@@ -34,5 +34,13 @@ public class Medico {
         this.crm = dados.crm();
         this.especialidade = dados.especialidade();
         this.endereco = new Endereco(dados.endereco());
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
+        this.nome = dados.nome() != null ? dados.nome() : this.nome;
+        this.telefone = dados.telefone() != null ? dados.telefone() : this.telefone;
+        if (dados.endereco() != null) {
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
     }
 }
