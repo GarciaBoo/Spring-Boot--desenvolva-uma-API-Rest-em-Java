@@ -21,11 +21,13 @@ public class Paciente {
     private Long id;
 
     private String nome,email, cpf, telefone;
+    private boolean ativo;
 
     @Embedded
     private Endereco endereco;
 
     public Paciente(DadosCadastroPaciente dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.cpf = dados.cpf();
@@ -33,4 +35,15 @@ public class Paciente {
         this.endereco = new Endereco(dados.endereco());
     }
 
+    public void atualizarInformações(DadosAtualizacaoPaciente dados) {
+        this.nome = dados.nome() != null ? dados.nome() : this.nome;
+        this.telefone = dados.telefone() != null ? dados.telefone() : this.telefone;
+        if (dados.endereco() != null) {
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
+    }
+
+    public void inativar(){
+        this.ativo = false;
+    }
 }
