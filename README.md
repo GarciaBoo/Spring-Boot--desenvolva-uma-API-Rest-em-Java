@@ -1,7 +1,3 @@
-Claro! Aqui está o README melhorado com a adição de informações sobre a utilização do MySQL.
-
----
-
 # Spring Boot: Desenvolva uma API Rest em Java
 
 Projeto para estudos sobre como desenvolver uma API seguindo o curso da Alura de Spring Boot 3.
@@ -18,6 +14,80 @@ O projeto está estruturado da seguinte forma:
 ## DTO
 
 Utilização do padrão DTO (Data Transfer Object) para encapsular dados e melhorar a transferência entre camadas da aplicação.
+
+## Funcionalidades da API
+
+### GET
+
+- **Descrição**: Recupera informações dos recursos.
+- **Exemplo**:
+   - Endpoint: `/medicos` `/paciente`
+   - Método: `GET`
+   - Descrição: Retorna uma lista de todos os médicos ou pacientes cadastrados.
+
+   - **Exemplo de Resposta**:
+     ```json
+     [
+       {
+         "nome": "Dra. Ana Duda",
+         "email": "ana.duda@example.com",
+         "crm": "152888",
+         "especialidade": "ORTOPEDIA"
+       },
+       {
+         "nome": "Dr. João Silva",
+         "email": "joao.silva@example.com",
+         "crm": "123456",
+         "especialidade": "CARDIOLOGIA"
+       }
+     ]
+     ```
+
+### POST
+
+- **Cadastrar Médico**: Adiciona um novo médico ou paciente ao sistema.
+   - **Endpoint**: `/medicos` `/paciente`
+   - **Exemplo de Requisição**:
+     ```json
+     {
+       "nome": "Dra. Ana Duda",
+       "email": "ana.duda@example.com",
+       "crm": "152888",
+       "telefone": "1199990000",
+       "especialidade": "ORTOPEDIA",
+       "endereco": {
+         "logradouro": "New Orleans",
+         "bairro": "Jardins",
+         "cep": "87654321",
+         "cidade": "Rio de Janeiro",
+         "uf": "RJ"
+       }
+     }
+     ```
+
+### PUT
+
+- **Descrição**: Atualiza informações de recursos existentes.
+- **Exemplo**:
+   - Endpoint: `/medicos/{id}` `/paciente/{id}`
+   - Método: `PUT`
+   - Descrição: Atualiza as informações de um médico ou paciente existente.
+   - Corpo da requisição:
+     ```json
+     {
+       "nome": "Dr. João Silva",
+       "email": "joao.silva@example.com",
+       "telefone": "1199998888"
+     }
+     ```
+
+### DELETE
+
+- **Descrição**: Remove recursos de forma lógica, não física.
+- **Exemplo**:
+   - Endpoint: `/medicos/{id}`
+   - Método: `DELETE`
+   - Descrição: Marca um médico como removido, mas não exclui fisicamente do banco de dados. A remoção lógica permite manter um histórico e reverter a exclusão se necessário.
 
 ## Pré-requisitos
 
